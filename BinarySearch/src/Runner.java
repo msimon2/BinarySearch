@@ -21,6 +21,8 @@ public class Runner
 		}
 	public static int binarySearch(int[] elements, int target)
 		{
+		Scanner userInput = new Scanner (System.in);
+		int counter = 0;
 		int left = 0;
 		int right = elements.length-1;
 		while (left <= right)
@@ -29,14 +31,31 @@ public class Runner
 			if (target < elements[middle])
 				{
 				right = middle -1;
-				//System.out.println(right);
 				}
-			else if (target > elements[middle])
+			System.out.println("What is the right?");
+			int userRight = userInput.nextInt();
+			if (right == userRight)
+				{
+				counter++;
+				}
+			if (target > elements[middle])
 				{
 				left = middle + 1;
-				//System.out.println(left);
 				}
-			else
+			System.out.println("What is the left?");
+			int userLeft = userInput.nextInt();
+			if (left == userLeft)
+				{
+				counter++;
+				}
+			System.out.println("What is the middle?");
+			int userMiddle = userInput.nextInt();
+			if (middle == userMiddle)
+				{
+				counter++;
+				}
+			System.out.println("You got: " + counter + " correct.");
+			if (target == elements[middle])
 				{
 				return middle;
 				}
